@@ -13,19 +13,19 @@ import { Link } from "react-router-dom";
 const ProductCard = () => {
   return (
     <>
-      <h1 className="text-4xl font-bold text-center my-5">
+      <h1 className="my-5 text-center text-4xl font-bold">
         Welcome to MiniMart
       </h1>
-      <span className="w-3/4 border-b-2 border-dashed border-slate-300 flex mx-auto"></span>
-      <div className="grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-4 py-8 ">
+      <span className="mx-auto flex w-3/4 border-b-2 border-dashed border-slate-300"></span>
+      <div className="grid gap-4 py-8 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5">
         {products.map((product) => (
           <Card
             key={`product-${product.id}`}
-            className="pt-0 overflow-clip group bg-blue-50 hover:shadow-lg hover:-translate-y-1.5 duration-300"
+            className="group overflow-clip bg-blue-50 pt-0 duration-300 hover:-translate-y-1.5 hover:shadow-lg"
           >
             <figure className="w-full overflow-clip">
               <img
-                className="transition-transform duration-300 group-hover:scale-110 w-full"
+                className="w-full transition-transform duration-300 group-hover:scale-110"
                 src={product.image}
                 alt={product.name}
               />
@@ -33,23 +33,23 @@ const ProductCard = () => {
             <CardHeader>
               <CardTitle>{product.name}</CardTitle>
             </CardHeader>
-            <div className="flex flex-col h-full justify-end gap-3">
+            <div className="flex h-full flex-col justify-end gap-3">
               <CardContent>
                 <CardDescription>{product.shortDesc}</CardDescription>
               </CardContent>
-              <CardFooter className="gap-2 flex-col items-start">
+              <CardFooter className="flex-col items-start gap-2">
                 <p className="font-medium">${product.price}</p>
                 <div className="flex gap-2">
                   <Link to={`/product/${product.name}`}>
                     <Button
                       variant="Outline"
-                      className="cursor-pointer border border-primary hover:bg-primary hover:text-secondary duration-300"
+                      className="border-primary hover:bg-primary hover:text-secondary cursor-pointer border duration-300"
                     >
                       View details
                     </Button>
                   </Link>
                   <Link to={`/product/${product.name}`}>
-                    <Button className="cursor-pointer border border-primary duration-300 hover:bg-transparent hover:text-primary">
+                    <Button className="border-primary hover:text-primary cursor-pointer border duration-300 hover:bg-transparent">
                       Buy now
                     </Button>
                   </Link>
