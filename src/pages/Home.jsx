@@ -1,4 +1,13 @@
+import FeaturedProducts from "../assets/myComponents/FeaturedProducts";
+import Hero from "../assets/myComponents/Hero";
+
 const Home = () => {
-  return <div>Home</div>;
+  return (
+    <>
+      <Hero />
+
+      <FeaturedProducts />
+    </>
+  );
 };
 export default Home;

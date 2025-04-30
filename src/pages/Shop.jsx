@@ -6,30 +6,31 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { products } from "../../data/product.data";
+import { products } from "../data/product.data";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import ProductFlag from "../assets/myComponents/ProductFlag";
 
-const ProductCard = () => {
+const Shop = () => {
   return (
-    <>
-      <h1 className="my-5 text-center text-4xl font-bold">
-        Welcome to MiniMart
-      </h1>
-      <span className="mx-auto flex w-3/4 border-b-2 border-dashed border-slate-300"></span>
-      <div className="grid gap-4 py-8 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5">
+    <div className="container mx-auto">
+      <div className="grid gap-4 py-8 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
         {products.map((product) => (
           <Card
             key={`product-${product.id}`}
-            className="group overflow-clip bg-blue-50 pt-0 duration-300 hover:-translate-y-1.5 hover:shadow-lg"
+            className="group relative overflow-clip bg-blue-50 pt-0 duration-300 hover:-translate-y-1.5 hover:shadow-lg"
           >
-            <figure className="w-full overflow-clip">
+            <ProductFlag product={product} />
+            <Link
+              to={`/product/${product.name}`}
+              className="w-full overflow-clip"
+            >
               <img
                 className="w-full transition-transform duration-300 group-hover:scale-110"
                 src={product.image}
                 alt={product.name}
               />
-            </figure>
+            </Link>
             <CardHeader>
               <CardTitle>{product.name}</CardTitle>
             </CardHeader>
@@ -59,8 +60,8 @@ const ProductCard = () => {
           </Card>
         ))}
       </div>
-    </>
+    </div>
   );
 };
 
-export default ProductCard;
+export default Shop;
